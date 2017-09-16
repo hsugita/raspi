@@ -16,8 +16,5 @@ def post(temp, humid, time)
   HTTPS.request(req)
 end
 
-10.times do
-  p post(20.1, 71.5, Time.now)
-  sleep(1)
-end
-
+temp, humid = `usbrh`.split.map(&:to_f)
+p post(temp, humid, Time.now)
